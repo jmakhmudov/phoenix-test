@@ -18,7 +18,6 @@ export const MainPageParallax = () => {
 
   const headline: BannerLayer = {
     translateY: [0, 30],
-    scale: [1, 1.05, "easeOutCubic"],
     shouldAlwaysCompleteAnimation: true,
     expanded: false,
     children: (

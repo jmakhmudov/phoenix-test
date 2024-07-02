@@ -4,13 +4,15 @@ import { MainPageParallax } from '@/components/MainPageParallax';
 import Button from "@/components/ui/button";
 import { FiPlayCircle } from "react-icons/fi";
 import { ParallaxProvider } from 'react-scroll-parallax';
+import OurProductionSection from './(our-production)/page';
+import UsefulArticlesSection from './(useful-articles)/page';
 
 export default function Home() {
 
   return (
     <ParallaxProvider>
       <main className="relative">
-        <section className="h-[100vh] overflow-y-hidden relative">
+        <section className="h-[100vh] overflow-y-hidden relative text-white">
           <MainPageParallax />
           <div className="px-6 md:px-10 h-3/4 mt-14 md:mt-24 font-tenor space-y-6 z-50">
             <div className="text-3xl md:text-5xl w-full md:w-2/3 font-semibold">
@@ -32,7 +34,9 @@ export default function Home() {
         </section>
       </main>
 
-      <div className='h-[100vh]'></div>
+      <OurProductionSection />
+
+      <UsefulArticlesSection />
     </ParallaxProvider >
   );
 }

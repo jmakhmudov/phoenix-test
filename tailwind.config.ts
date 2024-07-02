@@ -6,12 +6,16 @@ const config: Config = {
     extend: {
       fontFamily: {
         kanit: ['"Kanit"', 'sans-serif'],
+        tenor: ['"Tenor Sans"', 'sans-serif'],
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      colors: {
+        green: "#24831F"
+      }
     },
   },
   plugins: [],

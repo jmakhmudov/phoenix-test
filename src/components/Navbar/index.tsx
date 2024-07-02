@@ -15,12 +15,14 @@ export default function Navbar() {
   const [menuIsOpen, setMenuIsOpen] = useState(false);
 
   return (
-    <nav data-menuisopen={menuIsOpen} className="flex items-center justify-between px-6 py-2 md:py-5 md:px-10 absolute top-0 left-0 right-0 z-50">
-      <Image
-        className="w-24 md:w-[8vw]"
-        alt="logo"
-        src={logo}
-      />
+    <nav data-menuisopen={menuIsOpen} className="flex items-center justify-between px-6 py-2 md:py-5 md:px-10 absolute top-0 left-0 right-0 z-50 text-white">
+      <Link href={'/'}>
+        <Image
+          className="w-24 md:w-[8vw]"
+          alt="logo"
+          src={logo}
+        />
+      </Link>
 
       <div className="md:flex items-center gap-8 hidden">
         <div className="flex items-center gap-10 list-none">

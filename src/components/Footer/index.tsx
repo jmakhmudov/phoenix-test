@@ -13,20 +13,20 @@ export default function Footer() {
   const pathname = usePathname();
 
   return (
-    <footer className="w-[100dvw] bg-[#231E1E] px-6 py-8 pb-10 md:px-10 flex md:flex-row justify-between flex-col gap-y-6 text-center md:text-left relative">
+    <footer className=" text-white w-[100dvw] bg-[#231E1E] px-6 py-8 pb-10 md:px-10 flex md:flex-row justify-between flex-col gap-y-6 text-center md:text-left relative">
       <Image
         alt="logo"
         src={logo2}
         className="absolute top-1/2 right-10 w-32 mix-blend-color-dodge md:top-4 md:right-1/3 md:w-40"
       />
 
-      <div className="order-last md:order-first grid place-items-center md:place-items-start">
+      <Link href={'/'} className="order-last md:order-first grid place-items-center md:place-items-start">
         <Image
           className="w-24 md:w-[10vw]"
           alt="logo"
           src={logo}
         />
-      </div>
+      </Link>
 
       <section className="md:text-sm font-normal w-full md:w-96 space-y-4 text-xs">
         <div className="md:space-y-4 space-y-2">
