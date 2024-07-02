@@ -5,9 +5,7 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        roboto: ['"Roboto"', 'sans-serif'],
-        gilroy: ['"Gilroy"', 'sans-serif'],
-        tenor: ['"Tenor Sans"', 'sans-serif'],
+        kanit: ['"Kanit"', 'sans-serif'],
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

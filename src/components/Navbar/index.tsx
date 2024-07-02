@@ -15,15 +15,15 @@ export default function Navbar() {
   const [menuIsOpen, setMenuIsOpen] = useState(false);
 
   return (
-    <nav data-menuisopen={menuIsOpen} className="flex items-center justify-between px-6 py-2 md:px-10">
+    <nav data-menuisopen={menuIsOpen} className="flex items-center justify-between px-6 py-2 md:py-5 md:px-10 absolute top-0 left-0 right-0 z-50">
       <Image
-        className="w-24 md:w-[10vw]"
+        className="w-24 md:w-[8vw]"
         alt="logo"
         src={logo}
       />
 
       <div className="md:flex items-center gap-8 hidden">
-        <div className="flex items-center gap-8 list-none">
+        <div className="flex items-center gap-10 list-none">
           <Links pathname={pathname} />
         </div>
 
@@ -32,7 +32,7 @@ export default function Navbar() {
             <CiSearch size={24} />
             <input
               placeholder="Поиск..."
-              className="bg-transparent outline-none font-gilroy font-medium"
+              className="bg-transparent outline-none font-medium"
               type="text"
               name="search"
               id="search"
@@ -48,10 +48,10 @@ export default function Navbar() {
 
       {
         menuIsOpen ?
-          <IoClose className="cursor-pointer md:hidden z-10" onClick={() => setMenuIsOpen(false)} size={24} />
+          <IoClose className="cursor-pointer md:hidden z-50" onClick={() => setMenuIsOpen(false)} size={24} />
           : <FiMenu className="cursor-pointer md:hidden" onClick={() => setMenuIsOpen(true)} size={24} />
       }
-      <div data-menuisopen={menuIsOpen} className="bg-black bg-opacity-10 backdrop-blur-md hidden data-[menuisopen=true]:block absolute pt-20 px-6 md:px-10 top-0 bottom-0 right-0 left-0 !md:hidden">
+      <div data-menuisopen={menuIsOpen} className="bg-black bg-opacity-10 backdrop-blur-md hidden data-[menuisopen=true]:block fixed pt-20 px-6 md:px-10 top-0 bottom-0 right-0 left-0 !md:hidden">
         <div className="grid gap-4 text-lg text-center">
           <Links pathname={pathname} />
         </div>

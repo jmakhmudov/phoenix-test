@@ -5,9 +5,9 @@ interface ButtonProps {
 }
 
 const styles = {
-  outline: 'p-2 px-5 bg-white bg-opacity-[14%] uppercase text-white rounded-md border border-white font-roboto hover:bg-opacity-50 active:bg-opacity-30',
-  primary: 'p-2 px-5 bg-white bg-opacity-[14%] uppercase text-white rounded-md border border-white font-roboto',
-  secondary: 'p-2 px-5 bg-white bg-opacity-[14%] uppercase text-white rounded-md border border-white font-roboto'
+  outline: 'p-2 px-5 bg-white bg-opacity-[14%] uppercase text-white rounded-md border border-white hover:bg-opacity-50 active:bg-opacity-30',
+  primary: 'p-2 px-5 bg-white bg-opacity-[14%] uppercase text-white rounded-md border border-white',
+  secondary: 'p-2 px-5 bg-white bg-opacity-[14%] uppercase text-white rounded-md border border-white'
 }
 
 export default function Button({
@@ -18,7 +18,7 @@ export default function Button({
   const variantStyles = variant ? styles[variant] : '';
 
   return (
-    <button className={`${variantStyles} flex items-center justify-center gap-2 transition-all duration-150 ${className}`}>
+    <button className={`${variantStyles} font-medium flex items-center justify-center gap-2 transition-all duration-150 text-sm ${className}`}>
       {children}
     </button>
   )
