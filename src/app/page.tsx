@@ -4,8 +4,8 @@ import { MainPageParallax } from '@/components/MainPageParallax';
 import Button from "@/components/ui/button";
 import { FiPlayCircle } from "react-icons/fi";
 import { ParallaxProvider } from 'react-scroll-parallax';
-import OurProductionSection from '../../components/OurProductionSection';
-import UsefulArticlesSection from '../../components/UsefulArticlesSection';
+import OurProductionSection from '../components/OurProductionSection';
+import UsefulArticlesSection from '../components/UsefulArticlesSection';
 
 export default function Home() {
 
