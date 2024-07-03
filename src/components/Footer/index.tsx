@@ -8,9 +8,11 @@ import { usePathname } from "next/navigation";
 import { RiInstagramFill } from "react-icons/ri";
 import { FaFacebook } from "react-icons/fa";
 import { FaTelegram } from "react-icons/fa6";
+import { useTranslations } from "next-intl";
 
 export default function Footer() {
   const pathname = usePathname();
+  const t = useTranslations('Footer');
 
   return (
     <footer className=" text-white w-[100dvw] bg-[#231E1E] px-6 py-8 pb-10 md:px-10 flex md:flex-row justify-between flex-col gap-y-6 text-center md:text-left relative">
@@ -30,23 +32,23 @@ export default function Footer() {
 
       <section className="md:text-sm font-normal w-full md:w-96 space-y-4 text-xs">
         <div className="md:space-y-4 space-y-2">
-          <div>Адрес головного офиса:</div>
-          <div>100100, Республика Узбекистан, город Ташкент, Яккасарайский район, улица Шота Руставели, 53Б</div>
+          <div>{t('office_address_key')}</div>
+          <div>{t('office_address_value')}</div>
         </div>
 
         <div className="md:space-y-4 space-y-2">
-          <div>Адрес производства:</div>
-          <div>111305, Республика Узбекистан, Ташкентская область, Паркентский район, Каракалпакский Марказий МФУ</div>
+          <div>{t('prod_address_key')}</div>
+          <div>{t('prod_address_value')}</div>
         </div>
       </section>
 
       <Links pathname={pathname} className="order-first md:order-none text-lg md:text-sm" />
 
       <section className="md:space-y-3 space-y-2 text-sm">
-        <div className="mb-1">Как с нами связаться?</div>
-        <div>info@yumabio.com</div>
-        <div>+998 95 478 88 87</div>
-        <div>+998 93 321 24 42</div>
+        <div className="mb-1">{t('how_contact')}</div>
+        <div>{t('email')}</div>
+        <div>{t('phone_1')}</div>
+        <div>{t('phone_2')}</div>
         <div className="flex items-center justify-center md:justify-start gap-3">
           <Link target="_blank" href={'instagram.com'}><RiInstagramFill size={18} /></Link>
           <Link target="_blank" href={'instagram.com'}><FaFacebook size={18} /></Link>
@@ -62,6 +64,7 @@ function Links({
   pathname,
   className
 }: { pathname: string, className?: string }) {
+  const links = useTranslations('Pages');
 
   return (
     <div className={`grid gap-3 ${className}`}>
@@ -70,35 +73,35 @@ function Links({
         href={'/'}
         className="hover:underline transition-all duration-150 data-[onpage=true]:underline"
       >
-        Главная
+        {links('main')}
       </Link>
       <Link
         data-onpage={pathname === '/about'}
         href={'/about'}
         className="hover:underline transition-all duration-150 data-[onpage=true]:underline"
       >
-        О нас
+        {links('about')}
       </Link>
       <Link
         data-onpage={pathname === '/products'}
         href={'/products'}
         className="hover:underline transition-all duration-150 data-[onpage=true]:underline"
       >
-        Продукты
+        {links('products')}
       </Link>
       <Link
         data-onpage={pathname === '/contacts'}
         href={'/contacts'}
         className="hover:underline transition-all duration-150 data-[onpage=true]:underline"
       >
-        Контакты
+        {links('contacts')}
       </Link>
       <Link
         data-onpage={pathname === '/news'}
         href={'/news'}
         className="hover:underline transition-all duration-150 data-[onpage=true]:underline"
       >
-        Новости
+        {links('news')}
       </Link>
     </div>
   )

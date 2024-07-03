@@ -1,0 +1,62 @@
+
+.bordered::after,
+.bordered::before,
+.bordered span::after,
+.bordered span::before {
+  display: block;
+  content: "";
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  z-index: -1;
+}
+
+.bordered::before {
+  top: -1px;
+  left: -1px;
+  border-top: 1px solid #4EB748;
+  border-left: 1px solid #4EB748;
+  border-top-left-radius: 0.375rem;
+  transition: 0.5s all;
+}
+
+.bordered::after {
+  top: -1px;
+  right: -0.5px;
+  border-top: 1px solid #4EB748;
+  border-right: 1px solid #4EB748;
+  border-top-right-radius: 0.375rem;
+  transition: 0.5s all;
+}
+
+.bordered span::before {
+  bottom: -0.5px;
+  left: -1px;
+  border-bottom: 1px solid #4EB748;
+  border-left: 1px solid #4EB748;
+  border-bottom-left-radius: 0.375rem;
+  transition: 0.5s all;
+}
+
+.bordered span::after {
+  bottom: -0.5px;
+  right: -0.5px;
+  border-bottom: 1px solid #4EB748;
+  border-right: 1px solid #4EB748;
+  border-bottom-right-radius: 0.375rem;
+  transition: 0.5s all;
+}
+
+.bordered:hover::before,
+.bordered:hover::after {
+  width: 55%;
+  height: 55%;
+  background-color: #4EB748;
+}
+
+.bordered:hover span::before,
+.bordered:hover span::after {
+  width: 55%;
+  height: 55%;
+  background-color: #4EB748;
+}

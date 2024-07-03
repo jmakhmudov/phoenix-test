@@ -1,5 +1,6 @@
-import { Product } from "@/types"
+import { LanguageKey, Product } from "@/types"
 import ProductCard from "./ProductCard"
+import { useLocale } from "next-intl"
 
 interface ProductsListProps {
   products: Product[]
@@ -8,11 +9,13 @@ interface ProductsListProps {
 export default function ProductsList({
   products
 }: ProductsListProps) {
+  const nextLocale = useLocale() as LanguageKey;
+
   return (
-    <div className="grid gap-6 md:gap-10 md:grid-cols-2">
+    <div className="grid gap-6 md:gap-10 md:grid-cols-3">
       {
         products.map(product => (
-          <ProductCard key={product.name + product.id} product={product} />
+          <ProductCard key={product.name[nextLocale] + product.id} product={product} />
         ))
       }
     </div>

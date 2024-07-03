@@ -6,8 +6,11 @@ import { ParallaxBanner } from "react-scroll-parallax";
 import { BannerLayer } from "react-scroll-parallax/dist/components/ParallaxBanner/types";
 import Button from '../ui/button';
 import { FiPlayCircle } from 'react-icons/fi';
+import { useTranslations } from 'next-intl';
 
 export const MainPageParallax = () => {
+  const t = useTranslations('IndexPage');
+
   const background: BannerLayer = {
     image: bgTop.src,
     translateY: [0, 50],
@@ -23,18 +26,18 @@ export const MainPageParallax = () => {
     children: (
       <div className="px-6 md:px-10 h-3/4 pt-20 md:mt-24 font-tenor space-y-6">
         <div className="text-3xl md:text-5xl w-full md:w-2/3 font-semibold">
-          Экологически чистые продукты из богатой флоры <span className="text-[#4EB748]">Узбекистана</span>
+          {t('title').substring(0, t('title').lastIndexOf(" "))} <span className='text-green'>{t('title').split(" ").pop()}</span>
         </div>
 
         <div className="text-sm md:text-base w-full md:w-2/3">
-          Страна Шелкового пути, древней сети торговых маршрутов, была местом культурного обмена и глубоких знаний. Опираясь на богатое историческое наследие Узбекистана и стремление к инновациям, в 2018 году в самом сердце Центральной Азии было создано современное предприятие, целью которого является использование экологически чистых, натуральных местных природных богатств — цветов, листьев, кожуры, семян, корней дикорастущих лекарственных растений, фруктов и овощей
+          {t('description')}
         </div>
 
-        <div className="flex flex-col md:flex-row items-center gap-6">
-          <Button variant="outline" className="w-full md:w-auto">Связаться с нами</Button>
+        <div className="flex flex-col md:flex-row items-center gap-6 font-normal">
+          <Button variant="outline" className="w-full md:w-auto">{t('contact_us')}</Button>
           <Button variant="outline" className="w-full md:w-auto">
-            Смотреть о нас
-            <FiPlayCircle fill="transparent" size={24} />
+            {t('watch_us')}
+            <FiPlayCircle fill="transparent" size={18} />
           </Button>
         </div>
       </div>

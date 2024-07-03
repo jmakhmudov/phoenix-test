@@ -9,10 +9,13 @@ import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 import { FiMenu } from "react-icons/fi";
 import { IoClose } from "react-icons/io5";
 import { useState } from "react";
+import LangSwitcher from "./lang-switcher";
+import { useTranslations } from "next-intl";
 
 export default function Navbar() {
   const pathname = usePathname();
   const [menuIsOpen, setMenuIsOpen] = useState(false);
+  const t = useTranslations('IndexPage');
 
   return (
     <nav data-menuisopen={menuIsOpen} className="flex items-center justify-between px-6 py-2 md:py-5 md:px-10 absolute top-0 left-0 right-0 z-50 text-white">
@@ -33,7 +36,7 @@ export default function Navbar() {
           <div className="flex items-center gap-3 border border-white px-3 py-2 rounded-full">
             <CiSearch size={24} />
             <input
-              placeholder="Поиск..."
+              placeholder={t('search')}
               className="bg-transparent outline-none font-medium"
               type="text"
               name="search"
@@ -42,8 +45,9 @@ export default function Navbar() {
           </div>
 
           <div className="flex items-center cursor-pointer">
-            <div>Ру</div>
-            <MdOutlineKeyboardArrowDown size={24} />
+            {/* <div>Ру</div>
+            <MdOutlineKeyboardArrowDown size={24} /> */}
+            <LangSwitcher />
           </div>
         </div>
       </div>
@@ -65,6 +69,7 @@ export default function Navbar() {
 function Links({
   pathname
 }: { pathname: string }) {
+  const links = useTranslations('Pages');
 
   return (
     <>
@@ -73,35 +78,35 @@ function Links({
         href={'/'}
         className="hover:underline transition-all duration-150 data-[onpage=true]:underline"
       >
-        Главная
+        {links('main')}
       </Link>
       <Link
         data-onpage={pathname === '/about'}
         href={'/about'}
         className="hover:underline transition-all duration-150 data-[onpage=true]:underline"
       >
-        О нас
+        {links('about')}
       </Link>
       <Link
         data-onpage={pathname === '/products'}
         href={'/products'}
         className="hover:underline transition-all duration-150 data-[onpage=true]:underline"
       >
-        Продукты
+        {links('products')}
       </Link>
       <Link
         data-onpage={pathname === '/contacts'}
         href={'/contacts'}
         className="hover:underline transition-all duration-150 data-[onpage=true]:underline"
       >
-        Контакты
+        {links('contacts')}
       </Link>
       <Link
         data-onpage={pathname === '/news'}
         href={'/news'}
         className="hover:underline transition-all duration-150 data-[onpage=true]:underline"
       >
-        Новости
+        {links('news')}
       </Link>
     </>
   )

@@ -1,12 +1,26 @@
 export interface Product {
   id: number,
-  name: string,
+  name: {
+    en: string,
+    ru: string,
+    uz: string
+  },
   image: string,
-  description: string,
+  description: {
+    en: string,
+    ru: string,
+    uz: string
+  },
 }
 
 export interface Article {
   id: number,
-  title: string,
+  title: {
+    en: string,
+    ru: string,
+    uz: string
+  },
   image: string
 }
+
+export type LanguageKey = 'ru' | 'en' | 'uz';
