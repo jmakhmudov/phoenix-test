@@ -1,16 +1,16 @@
-import { notFound } from 'next/navigation';
-import { getRequestConfig } from 'next-intl/server';
+import i18n from 'i18next';
+import { initReactI18next } from 'react-i18next';
+import { resources } from './localization';
 
-export type Locale = (typeof locales)[number];
-// Can be imported from a shared config
-export const locales = ['ru', 'uz', 'en'];
-export const defaultLocale = 'ru';
+i18n
+  .use(initReactI18next)
+  .init({
+    debug: false,
+    fallbackLng: ["ru", "uz", "en"],
+    interpolation: {
+      escapeValue: false, 
+    },
+    resources
+  });
 
-export default getRequestConfig(async ({ locale }) => {
-  // Validate that the incoming `locale` parameter is valid
-  if (!locales.includes(locale as any)) notFound();
-
-  return {
-    messages: (await import(`../messages/${locale}.json`)).default
-  };
-});
+export default i18n;

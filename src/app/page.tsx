@@ -1,15 +1,11 @@
 'use client'
 
-import { MainPageParallax } from '@/components/MainPageParallax';
-import Button from "@/components/ui/button";
-import { FiPlayCircle } from "react-icons/fi";
+import { MainPageParallax } from "@/components/MainPageParallax";
 import { ParallaxProvider } from 'react-scroll-parallax';
-import OurProductionSection from '../../components/OurProductionSection';
-import UsefulArticlesSection from '../../components/UsefulArticlesSection';
-import { useTranslations } from 'next-intl';
+import OurProductionSection from '../components/OurProductionSection';
+import UsefulArticlesSection from '../components/UsefulArticlesSection';
 
 export default function Home() {
-  const t = useTranslations('IndexPage');
 
   return (
     <ParallaxProvider>

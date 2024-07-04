@@ -8,11 +8,11 @@ import { usePathname } from "next/navigation";
 import { RiInstagramFill } from "react-icons/ri";
 import { FaFacebook } from "react-icons/fa";
 import { FaTelegram } from "react-icons/fa6";
-import { useTranslations } from "next-intl";
+import { useTranslation } from 'react-i18next';
 
 export default function Footer() {
   const pathname = usePathname();
-  const t = useTranslations('Footer');
+  const { t } = useTranslation('Footer');
 
   return (
     <footer className=" text-white w-[100dvw] bg-[#231E1E] px-6 py-8 pb-10 md:px-10 flex md:flex-row justify-between flex-col gap-y-6 text-center md:text-left relative">
@@ -64,7 +64,7 @@ function Links({
   pathname,
   className
 }: { pathname: string, className?: string }) {
-  const links = useTranslations('Pages');
+  const { t } = useTranslation('Pages');
 
   return (
     <div className={`grid gap-3 ${className}`}>
@@ -73,35 +73,35 @@ function Links({
         href={'/'}
         className="hover:underline transition-all duration-150 data-[onpage=true]:underline"
       >
-        {links('main')}
+        {t('main')}
       </Link>
       <Link
         data-onpage={pathname === '/about'}
         href={'/about'}
         className="hover:underline transition-all duration-150 data-[onpage=true]:underline"
       >
-        {links('about')}
+        {t('about')}
       </Link>
       <Link
         data-onpage={pathname === '/products'}
         href={'/products'}
         className="hover:underline transition-all duration-150 data-[onpage=true]:underline"
       >
-        {links('products')}
+        {t('products')}
       </Link>
       <Link
         data-onpage={pathname === '/contacts'}
         href={'/contacts'}
         className="hover:underline transition-all duration-150 data-[onpage=true]:underline"
       >
-        {links('contacts')}
+        {t('contacts')}
       </Link>
       <Link
         data-onpage={pathname === '/news'}
         href={'/news'}
         className="hover:underline transition-all duration-150 data-[onpage=true]:underline"
       >
-        {links('news')}
+        {t('news')}
       </Link>
     </div>
   )

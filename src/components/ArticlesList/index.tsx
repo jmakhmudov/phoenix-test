@@ -1,6 +1,6 @@
-import { Article, LanguageKey } from "@/types"
-import ArticleCard from "./ArticleCard"
-import { useLocale } from "next-intl";
+import i18n from "@/i18n";
+import { Article, LanguageKey } from "@/types";
+import ArticleCard from "./ArticleCard";
 
 interface ArticlesListProps {
   articles: Article[]
@@ -9,7 +9,7 @@ interface ArticlesListProps {
 export default function ArticlesList({
   articles
 }: ArticlesListProps) {
-  const nextLocale = useLocale() as LanguageKey;
+  const nextLocale = i18n.language as LanguageKey;
 
   return (
     <div className="grid gap-5 md:grid-cols-3">

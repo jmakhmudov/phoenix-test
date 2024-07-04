@@ -1,21 +1,21 @@
 'use client'
 
 import logo from "@/../public/logo.png";
+import { useTranslation } from 'react-i18next';
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from 'next/navigation';
+import { useState } from "react";
 import { CiSearch } from "react-icons/ci";
-import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 import { FiMenu } from "react-icons/fi";
 import { IoClose } from "react-icons/io5";
-import { useState } from "react";
 import LangSwitcher from "./lang-switcher";
-import { useTranslations } from "next-intl";
 
 export default function Navbar() {
-  const pathname = usePathname();
+  const [q, setQ] = useState('');
   const [menuIsOpen, setMenuIsOpen] = useState(false);
-  const t = useTranslations('IndexPage');
+  const pathname = usePathname();
+  const { t } = useTranslation('IndexPage');
 
   return (
     <nav data-menuisopen={menuIsOpen} className="flex items-center justify-between px-6 py-2 md:py-5 md:px-10 absolute top-0 left-0 right-0 z-50 text-white">
@@ -41,12 +41,11 @@ export default function Navbar() {
               type="text"
               name="search"
               id="search"
+              onChange={(e) => setQ(e.target.value)}
             />
           </div>
 
           <div className="flex items-center cursor-pointer">
-            {/* <div>Ру</div>
-            <MdOutlineKeyboardArrowDown size={24} /> */}
             <LangSwitcher />
           </div>
         </div>
@@ -69,7 +68,7 @@ export default function Navbar() {
 function Links({
   pathname
 }: { pathname: string }) {
-  const links = useTranslations('Pages');
+  const { t } = useTranslation('Pages');
 
   return (
     <>
@@ -78,35 +77,35 @@ function Links({
         href={'/'}
         className="hover:underline transition-all duration-150 data-[onpage=true]:underline"
       >
-        {links('main')}
+        {t('main')}
       </Link>
       <Link
         data-onpage={pathname === '/about'}
         href={'/about'}
         className="hover:underline transition-all duration-150 data-[onpage=true]:underline"
       >
-        {links('about')}
+        {t('about')}
       </Link>
       <Link
         data-onpage={pathname === '/products'}
         href={'/products'}
         className="hover:underline transition-all duration-150 data-[onpage=true]:underline"
       >
-        {links('products')}
+        {t('products')}
       </Link>
       <Link
         data-onpage={pathname === '/contacts'}
         href={'/contacts'}
         className="hover:underline transition-all duration-150 data-[onpage=true]:underline"
       >
-        {links('contacts')}
+        {t('contacts')}
       </Link>
       <Link
         data-onpage={pathname === '/news'}
         href={'/news'}
         className="hover:underline transition-all duration-150 data-[onpage=true]:underline"
       >
-        {links('news')}
+        {t('news')}
       </Link>
     </>
   )

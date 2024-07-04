@@ -1,15 +1,13 @@
-'use client'
-
-import bgBot from '@/../public/bg-bot-1.png';
-import bgTop from '@/../public/bg-top.png';
+import bgBot from '@/../public/bg-bot-1.webp';
+import bgTop from '@/../public/bg-top.webp';
 import { ParallaxBanner } from "react-scroll-parallax";
 import { BannerLayer } from "react-scroll-parallax/dist/components/ParallaxBanner/types";
 import Button from '../ui/button';
 import { FiPlayCircle } from 'react-icons/fi';
-import { useTranslations } from 'next-intl';
+import { useTranslation } from 'react-i18next';
 
 export const MainPageParallax = () => {
-  const t = useTranslations('IndexPage');
+  const { t } = useTranslation('IndexPage');
 
   const background: BannerLayer = {
     image: bgTop.src,

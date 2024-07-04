@@ -1,21 +1,18 @@
 'use client'
 
-import { useLocale } from "next-intl";
-import { useParams, usePathname, useRouter } from "next/navigation";
-import { ChangeEvent, useTransition } from "react"
+import i18n from "@/i18n";
+import { ChangeEvent, useTransition } from "react";
 
 export default function LangSwitcher() {
   const [isPending, startTransition] = useTransition();
-  const router = useRouter();
-  const curLocale = useLocale();
-  const pathname = usePathname();
-  const params = useParams();
-
+  const curLocale = i18n.language;
+  
   const handleLangChange = (e: ChangeEvent<HTMLSelectElement>) => {
     const nextLocale = e.target.value;
 
     startTransition(() => {
-      router.replace(`/${nextLocale}`)
+      console.log(nextLocale);
+      i18n.changeLanguage(nextLocale)
     });
   }
 

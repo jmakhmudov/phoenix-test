@@ -1,9 +1,9 @@
 import ArticlesList from "@/components/ArticlesList";
 import { articles } from "@/data";
-import { useTranslations } from "next-intl";
+import { useTranslation } from 'react-i18next';
 
 export default function UsefulArticlesSection() {
-  const t = useTranslations("IndexPage");
+  const { t } = useTranslation("IndexPage");
 
   return (
     <section className="px-6 md:px-10 py-14">

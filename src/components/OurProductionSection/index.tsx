@@ -1,10 +1,10 @@
 import ProductsList from "@/components/ProductsList";
 import { products } from "@/data";
-import { useTranslations } from "next-intl";
+import { useTranslation } from 'react-i18next';
 import Button from "../ui/button";
 
 export default function OurProductionSection() {
-  const t = useTranslations("IndexPage");
+  const { t } = useTranslation("IndexPage");
 
   return (
     <section className="px-6 md:px-10 py-14">

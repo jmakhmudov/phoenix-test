@@ -1,5 +1,6 @@
+import i18n from "@/i18n"
 import { LanguageKey, Product } from "@/types"
-import { useLocale, useTranslations } from "next-intl"
+import { useTranslation } from 'react-i18next';
 import Image from "next/image"
 import Link from "next/link"
 import { LiaLongArrowAltRightSolid } from "react-icons/lia"
@@ -11,8 +12,8 @@ interface ProductCardProps {
 export default function ProductCard({
   product
 }: ProductCardProps) {
-  const nextLocale = useLocale() as LanguageKey;
-  const t = useTranslations("IndexPage");
+  const nextLocale = i18n.language as LanguageKey;
+  const { t } = useTranslation("IndexPage");
 
   return (
     <div className="relative w-full aspect-square shadow-2xl rounded-lg overflow-hidden text-white cursor-pointer group">
